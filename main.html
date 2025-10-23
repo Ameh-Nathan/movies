@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>movie Website </title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="./movie-projector-2-svgrepo-com.svg" type="image/png">
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+        <h2 class="logo" id="userName"></h2>
+        <i class="fa-regular fa-user" style="color: red;"></i>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#movies" class="hideOnMobile">Movies</a></li>
+        <li><a href="#series" class="hideOnMobile">Series</a></li>
+        <li><a href="#popular" class="hideOnMobile">Popular</a></li>
+        <li><a href="#trends" class="hideOnMobile">Trends</a></li>
+      </ul>
+
+          <ul class="sidebar">
+     <li onclick=hideSidebar()><a><svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 96 960 960" width="40"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+      <li>
+     <li><a href="#movies">Movies</a></li>
+     <li><a href="#series">Series</a></li>
+     <li><a href="#popular">Popular</a></li>
+     <li><a href="#trends">Trends</a></li>
+    <label for="" style="font-size: 600; color: red; cursor: pointer;   font-size: 1.5rem;
+    margin-left: 30px;" class="Log_Out">LogOut <i class="fa-solid fa-arrow-right-from-bracket"></i></label>
+    </ul>
+
+
+      <form id="form" style="display: flex; justify-content: center; align-items: center; ">
+        <input type="text" id="search" placeholder="Search movies...">
+        <a href="#search-results"><button type="submit" class="search-btn" >Search</button></a>
+        
+        <label for="" style="font-size: 600; color: red; cursor: pointer;" class="hideOnMobile Log_Out" >Logout <i class="fa-solid fa-arrow-right-from-bracket"></i></label>
+        <a onclick=showSidebar() class="menu-button"><svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 96 960 960" width="40"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a>
+      </form>
+    </nav>
+  </header>
+
+
+  <section>
+          <div class="featured-content"
+                style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('./f-1.jpg');">
+                <img class="featured-title" src="./logo.png" alt="">
+                <p class="featured-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto illo dolor
+                    deserunt nam assumenda ipsa eligendi dolore, ipsum id fugiat quo enim impedit, laboriosam omnis
+                    minima voluptatibus incidunt. Accusamus, provident.</p>
+                <a href="#movies"><button class="featured-button"  >WATCH NOW
+                  <i class="fa-solid fa-arrow-down"></i>
+                </button></a>
+            </div>
+  </section>
+
+  <!-- Sections -->
+  <main>
+    <section id="movies">
+      <h1>Movies</h1>
+      <div class="grid movies-grid"></div>
+    </section>
+
+    <section>
+         <div class="featured-content"
+                style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('./f-2.jpg');">
+                <img class="featured-title" src="./more_sec.png" alt="">
+                <p class="featured-desc ">Lorem ipsum, dolor sit amet consectetur adipisicing elit.Iustoillodolor
+                    deserunt nam assumenda ipsa eligendi dolore, ipsum id fugiat quo enim impedit, laboriosam omnis
+                    minima voluptatibus incidunt. Accusamus, provident.</p>
+                <a href="#series"><button class="featured-button"  >WATCH NOW
+                  <i class="fa-solid fa-arrow-down"></i>
+                </button></a>
+            </div>
+    </section>
+
+    <section id="series">
+      <h1>Series</h1>
+      <div class="grid series-grid"></div>
+    </section>
+
+    <section id="popular">
+      <h1>Popular</h1>
+      <div class="grid popular-grid"></div>
+    </section>
+
+    <section id="trends">
+      <h1>Trends</h1>
+      <div class="grid trends-grid"></div>
+    </section>
+
+    <section id="search-results">
+      <h1>Search Results</h1>
+      <div class="grid search-grid"></div>
+    </section>
+  </main>
+
+  <!-- Movie Modal -->
+<div id="movie-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img id="modal-poster" src="" alt="Poster">
+
+    <div>
+      <h2 id="modal-title"></h2>
+      <p><strong>Release Date:</strong> <span id="modal-date"></span></p>
+      <p><strong>Rating:</strong> <span id="modal-rating"></span></p>
+      <p id="modal-overview"></p>
+      <p><strong>Genres:</strong> <span id="modal-genres"></span></p>
+      <p><strong>Runtime:</strong> <span id="modal-runtime"></span></p>
+      <button id="modal-trailer" style="display:none;">▶ Watch Trailer</button>
+    </div>
+    
+  </div>
+</div>
+
+    <footer id="contact">
+        <a href="./about&contact.html">about us</a>
+        <a href="./about&contact.html?#contact">Contact Us</a>
+        <p>Email: movie@example.com | Phone: +234 911 804 1231</p>
+        <p>© 2025 movie. All rights reserved.</p>
+    </footer>
+
+   <script>
+
+     const loggedInUser = JSON.parse(localStorage.getItem("currentUser"));
+    
+    document.getElementById("userName").textContent = `Welcome, ${loggedInUser.name}`
+    
+
+
+            //       // =============================
+            // // Check if user is logged in
+            // // =============================
+            // document.addEventListener("DOMContentLoaded", () => {
+            //    
+
+    //  const loggedInUser = JSON.parse(localStorage.getItem("currentUser"));
+            //     // const loginBox = document.querySelector(".login_box");
+            //     // const userBox = document.querySelector(".user_box");
+            //     // const userLabel = document.getElementById("user_label");
+
+            //     if (loggedInUser) {
+            //     console.log("✅ Logged in as:", loggedInUser.name);
+            //     userLabel.textContent = `Hi, ${loggedInUser.name}`;
+            //     // loginBox.style.display = "none";
+            //     // userBox.style.display = "flex";
+            //     } else {
+            //       document.getElementById("search-btn").disabled = true;
+            //       document.getElementById("search-btn").style.opacity = "0.5";
+            //       document.getElementById("search-btn").style.cursor = "not-allowed";
+
+            //       document.getElementById("search").disabled = true;
+            //     }
+
+            //     // =============================
+            //     // Log Out functionality
+            //     // =============================
+                // const logoutBtn = document.getElementById("Log_Out");
+                // logoutBtn.addEventListener("click", () => {
+                // localStorage.removeItem("currentUser");
+                // alert("You’ve been logged out!");
+                // window.location.href = "./login_signup.html"
+                // });
+            // });
+
+            // const logoutButtons = document.querySelectorAll(".Log_Out");
+
+            // logoutButtons.forEach(btn => {
+            //   btn.addEventListener("click", () => {
+            //     localStorage.removeItem("currentUser");
+            //     alert("You’ve been logged out!");
+            //     window.location.href = "./login_signup.html";
+            //   });
+            // });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const logoutButtons = document.querySelectorAll(".Log_Out");
+
+  logoutButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      localStorage.removeItem("currentUser");
+      alert("You’ve been logged out!");
+      window.location.href = "./login_signup.html";
+    });
+  });
+});
+
+
+
+
+   </script>
+
+
+        
+
+
+  <script src="script.js"></script>
+</body>
+</html>

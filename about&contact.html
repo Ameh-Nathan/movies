@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>movie Website</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="icon" href="./movie-projector-2-svgrepo-com.svg" type="image/png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #0e0e0e;
+      color: #f1f1f1;
+    }
+
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #f00;
+    }
+
+    header h1 {
+      font-size: 28px;
+      color: #f00;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #f00;
+    }
+
+    /* Hero section */
+    .about-hero {
+      text-align: center;
+      background: linear-gradient(to right, #111, #1a1a1a);
+      padding: 100px 20px 60px;
+    }
+
+    .about-hero h2 {
+      font-size: 48px;
+      color: #f00;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .about-hero p {
+      font-size: 18px;
+      max-width: 750px;
+      margin: 0 auto;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    /* About section */
+    .about-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 10%;
+      flex-wrap: wrap;
+      gap: 60px;
+      background-color: #141414;
+    }
+
+    .about-section img {
+      width: 450px;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(255, 0, 0, 0.3);
+    }
+
+    .about-text {
+      max-width: 520px;
+    }
+
+    .about-text h3 {
+      font-size: 30px;
+      color: #f00;
+      margin-bottom: 15px;
+    }
+
+    .about-text p {
+      color: #ccc;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* Stats section */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      padding: 70px 0;
+      background-color: #0b0b0b;
+      text-align: center;
+      flex-wrap: wrap;
+    }
+
+    .stat-box h3 {
+      font-size: 36px;
+      color: #f00;
+      margin-bottom: 5px;
+    }
+
+    .stat-box p {
+      color: #aaa;
+      font-size: 16px;
+    }
+
+    /* Contact section */
+    .contact-section {
+      background-color: #141414;
+      padding: 80px 10%;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-size: 38px;
+      color: #f00;
+      margin-bottom: 25px;
+    }
+
+    .contact-section p {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      color: #ccc;
+      font-size: 16px;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background-color: #1e1e1e;
+      color: #fff;
+      font-size: 15px;
+    }
+
+    form textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    form button {
+      background-color: #f00;
+      color: #fff;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #cc0000;
+    }
+
+
+    footer {
+      background: #000;
+      color: #fff;
+      padding: 40px 10%;
+      text-align: center;
+      border-top: 2px solid #f00;
+    }
+
+    footer p {
+      font-size: 14px;
+      color: #bbb;
+      line-height: 2;
+    }
+
+    footer a {
+      color: #bbb;
+    }
+
+    @media (max-width: 768px) {
+      .about-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-section img {
+        width: 90%;
+      }
+
+      .stats {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      form {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1></h1>
+    <nav>
+      <ul>
+        <li><a style="cursor: pointer;" id="back-btn">
+            < Back</a>
+        </li>
+        <li><a href="#contact">Contact us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="about-hero">
+    <h2>About This Website</h2>
+    <p>Welcome to my website — your home for streaming blockbusters, indie gems, and timeless classics. We bring stories
+      to life and cinema to your screen.</p>
+
+  </section>
+
+  <section class="about-section">
+    <img src="./logo.png" alt="CineVerse Cinema Hall">
+    <div class="about-text">
+      <h3>Our Story</h3>
+      <p>Founded by passionate filmmakers and movie lovers, It started as a small online community for sharing movie
+        recommendations. Today, it has grown into a global streaming platform where audiences discover, watch, and
+        celebrate cinema from around the world.</p>
+      <p>Our mission is simple — to make film accessible to everyone while supporting the creators behind them. Whether
+        you're into action, drama, horror, or animation, our site has something for every mood and every screen.</p>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat-box">
+      <h3>50K+</h3>
+      <p>Movies & Shows</p>
+    </div>
+    <div class="stat-box">
+      <h3>1M+</h3>
+      <p>Happy Viewers</p>
+    </div>
+    <div class="stat-box">
+      <h3>120+</h3>
+      <p>Countries Reached</p>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <h2>Contact Us</h2>
+    <p>Have a question, suggestion, or partnership idea? Our team would love to hear from you. Reach out to us using the
+      form below, and we’ll get back to you shortly.</p>
+
+    <form>
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <textarea placeholder="Your Message..." required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- <footer>
+    <p>Follow us on social media</p>
+    <p>
+      <i class="fa-brands fa-facebook-f"></i> &nbsp;
+      <i class="fa-brands fa-twitter"></i> &nbsp;
+      <i class="fa-brands fa-instagram"></i> &nbsp;
+      <i class="fa-brands fa-youtube"></i>
+    </p>
+    <p>© 2025 CineVerse. All rights reserved.</p>
+  </footer> -->
+  <footer id="contact">
+    <a href="./about&contact.html">about us</a>
+    <a href="#contact">Contact Us</a>
+    <p>Email: movie@example.com | Phone: +234 911 804 1231</p>
+    <p>© 2025 movie. All rights reserved.</p>
+  </footer>
+
+  <script>
+
+    // =============================
+    // Check if user is logged in
+    // =============================
+    //           document.addEventListener("DOMContentLoaded", () => {
+
+    //  })
+    const loggedInUser = JSON.parse(localStorage.getItem("currentUser"));
+    const back_btn = document.getElementById("back-btn");
+
+    back_btn.addEventListener("click", () => {
+
+      if (loggedInUser) {
+        console.log("✅ Logged in as:", loggedInUser.name);
+        window.location.href = "./main.html"
+      } else {
+        console.log("not loged in")
+        window.location.href = "./index.html"
+
+      }
+
+
+    })
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

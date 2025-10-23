@@ -1,0 +1,209 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>movie Website </title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="icon" href="./movie-projector-2-svgrepo-com.svg" type="image/png">
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+    body{
+        background: linear-gradient(to right, black, #e50914);
+    }
+    section{
+        max-width: 500px;
+      background-color: rgba(255, 255, 255, 0.493);
+      backdrop-filter: blur(10px);
+        margin: auto;
+        margin-top: 110px;
+        padding: 0px 30px;
+
+        border-radius: 20px;
+    }
+
+    .header-txt {
+        line-height: 2;
+        font-weight: 400;
+        margin-top: 30px;
+    }
+
+    .lg-txt {
+        line-height: 3;
+        font-weight: 400;
+        /* color: rgb(65, 65, 65); */
+        color: black;
+        margin-bottom: 20px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    form input {
+        font-size: 1rem;
+        border-top-width: initial;
+        border-right-width: initial;
+        border-left-width: initial;
+        border-top-color: initial;
+        border-right-color: initial;
+        border-left-color: initial;
+        border-style: none none solid;
+        border-image: initial;
+        outline: none;
+        border-bottom: 2px solid black;
+        margin-bottom: 50px;
+        background: transparent;
+        
+    }
+
+    form input::placeholder{
+      color: black;
+    }
+
+    .btn {
+        width: 100%;
+        margin-top: 20px;
+        background-color: black;
+        color: white;
+        line-height: 3.5;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 10px;
+        border-width: initial;
+        border-style: none;
+        border-color: initial;
+        border-image: initial;
+    }
+
+    .bottom_box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+        width: 100%;
+        gap: 10px;
+   }
+
+</style>
+<body>
+
+    <section style="display: none;" class="signUp">
+            <h1 class="header-txt">Create an account</h1>
+            <h3 class="lg-txt">Enter your details below</h3>
+
+
+            <form id="signup-form">
+                <input type="text" id="signup-name" placeholder="Name">
+                <input type="text" id="signup-email" placeholder="Email or Phone Number">
+                <input type="password" id="signup-password" placeholder="Password">
+            </form>
+            <button class="btn" id="signup-btn">Create Account</button>
+
+            <div class="bottom_box">
+                <h3 class="lg-txt">Already have account?</h3>
+                <a href="" class="lg-txt" id="Log-btn">Log in</a>
+            </div>
+    </section>
+    
+    <section class="signIn">
+            <h1 class="header-txt">Log in to Exclusive</h1>
+            <h3 class="lg-txt">Enter your details below</h3>
+            <form id="login-form">
+                <input type="text" id="login-email" placeholder="Email or Phone Number">
+                <input type="password" id="login-password" placeholder="Password">
+            </form>
+            <button class="btn" id="login-btn">Log In</button>
+
+                        <div class="bottom_box">
+                <h3 class="lg-txt" >Don't an account?</h3>
+                <a href="" class="lg-txt" id="signUp-btn">Sign Up</a>
+            </div>
+    </section>
+
+    <script>
+
+        document.getElementById("signUp-btn").addEventListener("click", (e) => {      
+                console.log("show")    
+                e.preventDefault();
+                console.log("show")
+                document.querySelector(".signUp").style.display = "block"
+                document.querySelector(".signIn").style.display = "none"  
+        });
+
+    document.getElementById("Log-btn").addEventListener("click", (e) => {      
+                console.log("show")    
+                e.preventDefault();
+                console.log("show")
+                document.querySelector(".signUp").style.display = "none"
+                document.querySelector(".signIn").style.display = "block"  
+        });
+
+
+
+
+
+        // SIGN UP FUNCTIONALITY
+
+        document.getElementById("signup-btn").addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById("signup-name").value.trim();
+            const email = document.getElementById("signup-email").value.trim();
+            const password = document.getElementById("signup-password").value.trim();
+
+            if (!name || !email || !password) {
+            alert("Please fill in all fields");
+            return;
+            }
+
+            // Check if user already exists
+            const existingUser = JSON.parse(localStorage.getItem("users")) || [];
+            const userExists = existingUser.find(u => u.email === email);
+
+            if (userExists) {
+            alert("This email is already registered. Please log in.");
+            return;
+            }
+
+            // Save new user
+            existingUser.push({ name, email, password });
+            localStorage.setItem("users", JSON.stringify(existingUser));
+
+            alert("Account created successfully! Please log in.");
+            document.querySelector(".signUp").style.display = "none";
+            document.querySelector(".signIn").style.display = "block";
+        });
+
+
+        // LOGIN FUNCTIONALITY
+        document.getElementById("login-btn").addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById("login-email").value.trim();
+            const password = document.getElementById("login-password").value.trim();
+
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            const validUser = users.find(u => u.email === email && u.password === password);
+
+            if (!validUser) {
+            alert("Invalid email or password");
+            return;
+            }
+
+            // Save logged-in user info
+            localStorage.setItem("currentUser", JSON.stringify(validUser));
+
+            alert(`Welcome back, ${validUser.name}!`);
+            window.location.href = "./main.html"; // redirect to home page
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+          <link rel="icon" href="./movie-projector-2-svgrepo-com.svg" type="image/png">
+          <title>movie Website</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .hero-sec {
+        /* height: 100vh; */
+        width: 100vw;
+    }
+
+    .hero-sec img {
+        width: 100%;
+        height: 100%;
+        /* max-width: fit-content; */
+        object-fit: cover;
+    }
+
+    nav {
+        z-index: 1000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: transparent;
+        /* background-color: rgba(255, 255, 255, 0.938); */
+        display: flex;
+        justify-content: space-between;
+        /* flex-direction: column; */
+        padding: 20 10px;
+        color: red;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        justify-content: space-between;
+        width: 200px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: red;
+        font-size: 1.2rem;
+    }
+
+    .content-div {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.781);
+        z-index: 1;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .show_content {
+        padding: 0 20px;
+    }
+
+    .st_btn {
+        border: none;
+        background-color: red;
+        color: white;
+        padding: 20px 40px;
+        font-size: 1.5rem;
+        border-radius: 7px;
+        text-decoration: none;
+    }
+
+    .st_btn:hover {
+        background-color: rgba(255, 0, 0, 0.637);
+    }
+
+    .header-txt {
+        font-weight: 1000;
+        margin-top: 30px;
+        font-size: 2.5rem;
+        text-align: center;
+        color: white;
+    }
+
+    .lg-txt {
+        color: white;
+        line-height: 3;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+
+    footer {
+        background: #000;
+        color: #fff;
+        padding: 40px 10%;
+        text-align: center;
+        border-top: 2px solid #f00;
+    }
+
+    footer p{
+        font-size: 14px;
+        color: #bbb;
+        line-height: 2;
+    }
+
+    footer a{
+        color: #bbb;
+    }
+
+
+
+    
+        /* Responsive
+    Mobile Devices: 319px — 480px */
+    @media  (max-width: 480px) {
+
+    
+          nav {
+            justify-content: end;
+          }
+
+          nav h2{
+            display: none;
+          }
+
+          .header-txt{
+            font-weight: 900;
+            font-size: 2rem;
+
+          }
+
+        .lg-txt {
+            line-height: 2;
+            margin-top: 20px;
+            
+            font-weight: 300;
+            margin-bottom: 40px;
+          }
+
+        .st_btn {
+           font-weight: 700;
+            font-size: 1rem;
+
+        }
+
+    }
+
+
+    /* Responsive
+    iPads and Tablets: 481px — 1200px */
+    @media (min-width: 481px) and (max-width: 1200px) {
+          nav {
+            justify-content: end;
+          }
+
+          nav h2{
+            display: none;
+          }
+
+          .header-txt{
+            font-weight: 900;
+            font-size: 2rem;
+
+          }
+
+        .lg-txt {
+            line-height: 2;
+            margin-top: 20px;
+            
+            font-weight: 300;
+            margin-bottom: 40px;
+          }
+
+        .st_btn {
+           font-weight: 700;
+            font-size: 1rem;
+
+        }
+
+    }
+
+
+</style>
+</head>
+
+<body>
+
+    <section class="hero-sec">
+        <nav>
+            <h2></h2>
+            <ul>
+                <li>
+                    <a href="./about&contact.html">about us</a>
+                </li>
+                <li>
+                    <a href="./about&contact.html?#contactq">contact us</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="content-div">
+
+            <div class="show_content">
+
+                <div style="max-width: 600px;">
+                    <h1 class="header-txt">Unlimited movies, TV shows, and more</h1>
+                </div>
+
+                <h3 class="lg-txt">Ready to watch? Click on the button to kickstart your journey to a movie world.</h3>
+
+                <div style="display: flex; justify-content: center;">
+
+                    <a href="./login_signup.html" class="st_btn">Get Started ></a>
+
+                </div>
+
+            </div>
+        </div>
+
+        <img src="./main_img.jpg" alt="">
+    </section>
+
+    <footer id="contact">
+        <a href="./about&contact.html">about us</a>
+        <a href="./about&contact.html?#contact">Contact Us</a>
+        <p>Email: movie@example.com | Phone: +234 911 804 1231</p>
+        <p>© 2025 movie. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
